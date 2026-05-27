@@ -1,0 +1,198 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'AfterRegular';
+  src: url('/font/after-regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roxen';
+  src: url('/font/roxen.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --color-orange-brand: #ff5500;
+  --color-orange-dark: #cc3f00;
+  --color-burnt-orange: #7a1f00;
+  --color-burnt-orange-dark: #2a0a00;
+  --color-off-white: #f5f4f0;
+  --color-off-black: #080706;
+}
+
+@theme {
+  --color-brand-orange: var(--color-orange-brand);
+  --color-brand-orange-dark: var(--color-orange-dark);
+  --color-burnt-orange: var(--color-burnt-orange);
+  --color-burnt-orange-dark: var(--color-burnt-orange-dark);
+  --color-off-white: var(--color-off-white);
+  --color-off-black: var(--color-off-black);
+
+  --font-after: 'AfterRegular', sans-serif;
+  --font-roxen: 'Roxen', sans-serif;
+
+  --animate-noise: noise 0.2s infinite;
+}
+
+/* Custom global rules */
+html, body {
+  background-color: var(--color-off-black);
+  color: var(--color-off-white);
+  font-family: var(--font-after), sans-serif;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+/* Smooth Lenis Scrolling */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overflow: clip;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* Custom Scrollbar - Raw, Industrial */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-off-black);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-orange-brand);
+  border-radius: 0px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-orange-dark);
+}
+
+/* Noise overlay */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  content: "";
+  opacity: 0.055;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Grain texture wrapper */
+.grain-bg {
+  position: relative;
+}
+.grain-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/theme.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.12;
+  mix-blend-mode: color-dodge;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Heavy distortion and motion utilities */
+.motion-blur-text {
+  filter: blur(0px);
+  transition: filter 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.motion-blur-active {
+  filter: blur(12px);
+}
+
+/* Text marquee styling */
+.marquee-container {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  gap: 2rem;
+  width: 100%;
+}
+
+.marquee-content {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-around;
+  min-width: 100%;
+  gap: 2rem;
+}
+
+/* Custom cursor */
+.custom-cursor {
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--color-orange-brand);
+  background: transparent;
+  border-radius: 0px; /* Sharp brutalist cursor */
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 10000;
+  transition: width 0.3s, height 0.3s, background-color 0.3s;
+}
+
+.custom-cursor-hover {
+  width: 48px;
+  height: 48px;
+  background-color: rgba(255, 85, 0, 0.25);
+  border-color: var(--color-orange-brand);
+  mix-blend-mode: difference;
+}
+
+/* Dark brutalist inputs */
+.brutalist-input {
+  background: transparent;
+  border-bottom: 2px solid rgba(245, 244, 240, 0.2);
+  color: var(--color-off-white);
+  font-family: var(--font-after);
+  padding: 1rem 0;
+  font-size: 1.25rem;
+  outline: none;
+  transition: border-bottom-color 0.3s, padding-left 0.3s;
+  width: 100%;
+}
+
+.brutalist-input:focus {
+  border-bottom-color: var(--color-orange-brand);
+  padding-left: 0.5rem;
+}
+
+/* Glow effects */
+.orange-glow {
+  box-shadow: 0 0 40px 10px rgba(255, 85, 0, 0.3);
+}
+
+.sphere-glow {
+  box-shadow: 0 0 60px 20px rgba(255, 85, 0, 0.6), 0 0 100px 40px rgba(122, 31, 0, 0.4);
+}
