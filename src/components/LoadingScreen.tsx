@@ -243,7 +243,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
-          opacity: 0.55,
+          opacity: 0.85,
         }}
       />
 

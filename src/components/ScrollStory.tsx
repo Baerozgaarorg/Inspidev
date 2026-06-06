@@ -190,7 +190,14 @@ export default function ScrollStory() {
       {/* Sticky Fullscreen Story Area */}
       <div
         ref={stickyRef}
-        className="w-full h-screen sticky top-0 flex items-center justify-center overflow-hidden grain-bg border-y border-neutral-900"
+        className="w-full h-screen sticky top-0 flex items-center justify-center overflow-hidden border-y border-neutral-900"
+        style={{
+          backgroundImage: "url('/theme.png')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundColor: '#080706',
+        }}
       >
         
         {/* Background Gradients */}
