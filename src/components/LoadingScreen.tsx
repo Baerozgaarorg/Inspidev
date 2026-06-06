@@ -260,7 +260,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
       <div className="flex flex-col items-center max-w-md w-full px-8 text-center relative z-10">
         
         {/* Logo Group */}
-        <div ref={logoRef} className="relative w-40 h-40 mb-8 filter drop-shadow-[0_0_15px_rgba(255,85,0,0.4)]">
+        <div ref={logoRef} className="relative w-40 h-40 mb-4 filter drop-shadow-[0_0_15px_rgba(255,85,0,0.4)]">
           <Image
             src="/ID_transparent.png"
             alt="INSPIDEV Logo"
@@ -272,7 +272,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
         </div>
 
         {/* Text Identity */}
-        <div ref={textRef} className="mb-10 text-off-white font-after select-none">
+        <div ref={textRef} className="mb-6 text-off-white font-after select-none">
           <h1 className="text-4xl font-roxen tracking-widest text-brand-orange uppercase">INSPIDEV</h1>
           <p className="text-sm tracking-[0.3em] uppercase opacity-60 mt-2">ESTB 2026</p>
         </div>
