@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "INSPIDEV | Experiential Creative-Tech Agency",
-  description: "A brutalist creative-tech forge crafting high-end experiential digital artifacts, cinematic motions, immersive web systems, and interactive storytelling.",
+  title: "INSPIDEV | Creative-Tech Growth Studio",
+  description: "INSPIDEV combines technology, content, and creativity to help businesses, brands, and creators build their presence, reach more people, and unlock new opportunities for growth.",
 };
 
 export default function RootLayout({
