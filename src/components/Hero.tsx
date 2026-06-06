@@ -110,7 +110,7 @@ export default function Hero() {
       />
 
       {/* Decorative Top Bar */}
-      <div className="w-full flex justify-between items-center z-10 font-mono text-xs tracking-[0.2em] uppercase text-neutral-500">
+      <div className="w-full flex flex-col md:flex-row justify-center md:justify-between items-center gap-3 md:gap-0 z-10 font-mono text-[10px] md:text-xs tracking-[0.2em] uppercase text-neutral-500 text-center">
         <div>[ CODING TO ART ]</div>
         <div className="text-brand-orange animate-pulse">[ SIGNAL ACTIVE ]</div>
         <div>[ INDIA ]</div>

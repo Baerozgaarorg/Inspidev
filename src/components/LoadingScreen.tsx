@@ -260,7 +260,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
         {/* Logo Group */}
         <div ref={logoRef} className="relative w-40 h-40 mb-8 filter drop-shadow-[0_0_15px_rgba(255,85,0,0.4)]">
           <Image
-            src="/ID.png"
+            src="/ID no bg.png"
             alt="INSPIDEV Logo"
             fill
             priority
