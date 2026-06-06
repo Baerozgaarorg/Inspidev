@@ -235,8 +235,18 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
       ref={containerRef}
       className="fixed inset-0 w-screen h-screen z-[9999] flex flex-col items-center justify-center bg-off-black overflow-hidden select-none"
     >
-      <div className="absolute inset-0 w-full h-full grain-bg pointer-events-none" />
-      
+      {/* Full-screen background image */}
+      <div
+        className="absolute inset-0 w-full h-full pointer-events-none"
+        style={{
+          backgroundImage: "url('/new_bg.png')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          opacity: 0.55,
+        }}
+      />
+
       {/* Liquid Goo SVG Filter */}
       <svg className="absolute w-0 h-0 pointer-events-none">
         <defs>
@@ -256,8 +266,9 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
       {/* Particle Container */}
       <div ref={particleContainerRef} className="absolute inset-0 pointer-events-none" />
 
-      {/* Main Loader Content */}
-      <div className="flex flex-col items-center max-w-md w-full px-8 text-center relative z-10">
+      {/* Main Loader Content - perfectly centered */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
+      <div className="flex flex-col items-center w-full max-w-md px-8 text-center">
         
         {/* Logo Group */}
         <div ref={logoRef} className="relative w-40 h-40 mb-4 filter drop-shadow-[0_0_15px_rgba(255,85,0,0.4)]">
@@ -314,6 +325,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
         <div className="mt-4 font-mono text-sm tracking-wider text-neutral-500">
           {progress.toString().padStart(3, '0')}%
         </div>
+      </div>
       </div>
     </div>
   );
