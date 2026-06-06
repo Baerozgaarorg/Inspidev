@@ -15,6 +15,18 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "INSPIDEV | Creative-Tech Growth Studio",
   description: "INSPIDEV combines technology, content, and creativity to help businesses, brands, and creators build their presence, reach more people, and unlock new opportunities for growth.",
+  openGraph: {
+    title: "INSPIDEV | Creative-Tech Growth Studio",
+    description: "INSPIDEV combines technology, content, and creativity to help businesses, brands, and creators build their presence, reach more people, and unlock new opportunities for growth.",
+    images: [
+      {
+        url: "/ID.png",
+        width: 1200,
+        height: 630,
+        alt: "INSPIDEV Logo",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
