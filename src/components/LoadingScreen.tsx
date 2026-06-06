@@ -233,10 +233,12 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-off-black overflow-hidden grain-bg select-none"
+      className="fixed inset-0 w-screen h-screen z-[9999] flex flex-col items-center justify-center bg-off-black overflow-hidden select-none"
     >
+      <div className="absolute inset-0 w-full h-full grain-bg pointer-events-none" />
+      
       {/* Liquid Goo SVG Filter */}
-      <svg className="hidden">
+      <svg className="absolute w-0 h-0 pointer-events-none">
         <defs>
           <filter id="liquid-goo">
             <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
@@ -260,7 +262,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
         {/* Logo Group */}
         <div ref={logoRef} className="relative w-40 h-40 mb-8 filter drop-shadow-[0_0_15px_rgba(255,85,0,0.4)]">
           <Image
-            src="/ID.png"
+            src="/ID no bg.png"
             alt="INSPIDEV Logo"
             fill
             priority
