@@ -50,7 +50,7 @@ const PROJECTS = [
     title: "KDR GROUP",
     category: "CORPORATE ENTERPRISE",
     logo: "/logo/KDR group.png",
-    bg: "/website background/R.D realtors.png", // Fallback
+    bg: "/website background/kdr group.png",
     link: "https://kdr-group.netlify.app"
   },
   {
