@@ -113,12 +113,14 @@ html.lenis, html.lenis body {
   height: 100%;
   background-image: url('/theme.png');
   background-size: cover;
-  background-position: center;
+  background-position: top center;
   background-repeat: no-repeat;
   opacity: 0.12;
   mix-blend-mode: color-dodge;
   pointer-events: none;
   z-index: 1;
+  transform: scale(1.5);
+  transform-origin: top center;
 }
 
 /* Heavy distortion and motion utilities */
