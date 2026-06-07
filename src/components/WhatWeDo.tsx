@@ -32,11 +32,17 @@ export default function WhatWeDo() {
     const folder = isMobile ? 'what we do phone' : 'what we do pc 2';
     const paths = buildFramePaths(folder);
 
-    // ── 2. Size canvas to match viewport ──────────────────────────────────
+    // ── 2. Size canvas for High DPI (Retina) displays for maximum quality ─
     const canvas = canvasRef.current!;
     const resizeCanvas = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      const dpr = window.devicePixelRatio || 1;
+      // Set actual internal resolution to be super high quality
+      canvas.width = window.innerWidth * dpr;
+      canvas.height = window.innerHeight * dpr;
+      // Set CSS display size to match screen
+      canvas.style.width = `${window.innerWidth}px`;
+      canvas.style.height = `${window.innerHeight}px`;
+      
       // Redraw current frame after resize
       const img = imagesRef.current[frameIndexRef.current];
       if (img) drawFrame(img);
@@ -48,6 +54,11 @@ export default function WhatWeDo() {
     function drawFrame(img: HTMLImageElement) {
       const ctx = canvas.getContext('2d');
       if (!ctx || !img.complete) return;
+      
+      // Enable highest quality image smoothing
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = 'high';
+
       const cw = canvas.width;
       const ch = canvas.height;
       const iw = img.naturalWidth;
@@ -86,8 +97,8 @@ export default function WhatWeDo() {
           stRef.current = ScrollTrigger.create({
             trigger: sectionRef.current!,
             start: 'top top',
-            // Pin for exactly TOTAL_FRAMES × 12px of scroll = full animation
-            end: `+=${TOTAL_FRAMES * 12}px`,
+            // Pin for exactly TOTAL_FRAMES × 25px of scroll = full animation
+            end: `+=${TOTAL_FRAMES * 25}px`,
             pin: stickyRef.current!,
             pinSpacing: true,
             // scrub: true = 1:1 scroll mapping, no momentum overshoot
@@ -126,7 +137,7 @@ export default function WhatWeDo() {
     <div
       ref={sectionRef}
       className="relative bg-off-black"
-      style={{ height: `${TOTAL_FRAMES * 12}px` }}
+      style={{ height: `${TOTAL_FRAMES * 25}px` }}
     >
       {/* Sticky viewport — pinned while animation plays */}
       <div
