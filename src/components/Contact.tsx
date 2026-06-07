@@ -1,23 +1,25 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
-import gsap from 'gsap';
+import React, { useEffect, useRef, useState } from 'react';
 import { Send, ArrowUpRight } from 'lucide-react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Contact() {
   const [projectType, setProjectType] = useState('Web Dev');
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const sectionRef = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
-    // Reveal animation
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
         start: 'top 80%',
       }
     });
-
     tl.fromTo(
       '.contact-fade',
       { opacity: 0, y: 40, filter: 'blur(8px)' },
@@ -27,9 +29,32 @@ export default function Contact() {
 
   const projectOptions = ['Web Dev', 'Video Editing', 'Motion Graphics', 'Branding', 'Other'];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert('Project details submitted to the cyber grid.');
+    if (!formRef.current) return;
+
+    setStatus('sending');
+    const data = new FormData(formRef.current);
+    // Append chosen project type (not a real input so add manually)
+    data.append('projectType', projectType);
+
+    try {
+      const res = await fetch('https://formspree.io/f/xojzerey', {
+        method: 'POST',
+        body: data,
+        headers: { Accept: 'application/json' },
+      });
+
+      if (res.ok) {
+        setStatus('success');
+        formRef.current.reset();
+        setProjectType('Web Dev');
+      } else {
+        setStatus('error');
+      }
+    } catch {
+      setStatus('error');
+    }
   };
 
   return (
@@ -46,7 +71,7 @@ export default function Contact() {
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12">
         
-        {/* Left Column: Typography & Info */}
+        {/* Left Column */}
         <div className="lg:col-span-5 flex flex-col justify-between">
           <div>
             <span className="font-mono text-xs text-brand-orange tracking-[0.3em] uppercase mb-4 block contact-fade">
@@ -64,15 +89,13 @@ export default function Contact() {
           <div className="mt-12 lg:mt-0 contact-fade font-mono text-[10px] tracking-wider text-neutral-500 uppercase space-y-4">
             <div>
               <span className="text-neutral-600">[ DIRECT COORD ]</span><br />
-              <a href="mailto:cyber@inspidev.com" className="text-brand-orange hover:underline font-roxen text-sm mt-1 block">
-                CYBER@INSPIDEV.COM
+              <a href="mailto:notbaerozgaar@gmail.com" className="text-brand-orange hover:underline font-roxen text-sm mt-1 block">
+                NOTBAEROZGAAR@GMAIL.COM
               </a>
             </div>
             <div>
               <span className="text-neutral-600">[ PHYSICAL GRID ]</span><br />
-              <span className="text-off-white font-after text-xs mt-1 block">
-                INDIA
-              </span>
+              <span className="text-off-white font-after text-xs mt-1 block">INDIA</span>
             </div>
           </div>
         </div>
@@ -80,8 +103,11 @@ export default function Contact() {
         {/* Right Column: Form */}
         <div className="lg:col-span-7 contact-fade">
           <form onSubmit={handleSubmit} ref={formRef} className="space-y-10">
-            
-            {/* Input Name */}
+
+            {/* Hidden field so Formspree knows the destination */}
+            <input type="hidden" name="_subject" value="New INSPIDEV Inquiry" />
+
+            {/* Name */}
             <div className="relative">
               <input
                 type="text"
@@ -91,10 +117,9 @@ export default function Contact() {
                 placeholder="YOUR NAME"
                 className="brutalist-input uppercase font-roxen placeholder:text-neutral-700 tracking-wider"
               />
-              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-brand-orange transition-all duration-300 pointer-events-none input-glow-bar" />
             </div>
 
-            {/* Input Email */}
+            {/* Email */}
             <div className="relative">
               <input
                 type="email"
@@ -106,7 +131,7 @@ export default function Contact() {
               />
             </div>
 
-            {/* Project Selection Chips (Interactive Selector) */}
+            {/* Project Type */}
             <div className="space-y-4">
               <label className="block font-mono text-[10px] text-neutral-500 uppercase tracking-widest">
                 [ SELECT PROJECT TYPE ]
@@ -132,7 +157,7 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Input Message */}
+            {/* Message */}
             <div className="relative">
               <textarea
                 required
@@ -144,19 +169,31 @@ export default function Contact() {
               />
             </div>
 
-            {/* Animated Submit Button */}
+            {/* Submit Button */}
             <button
               type="submit"
-              className="group flex items-center justify-between w-full md:w-auto md:min-w-64 px-6 py-4 bg-transparent border-2 border-brand-orange text-brand-orange font-roxen uppercase tracking-wider text-sm transition-all duration-300 relative overflow-hidden active:scale-95"
+              disabled={status === 'sending'}
+              className="group flex items-center justify-between w-full md:w-auto md:min-w-64 px-6 py-4 bg-transparent border-2 border-brand-orange text-brand-orange font-roxen uppercase tracking-wider text-sm transition-all duration-300 relative overflow-hidden active:scale-95 disabled:opacity-60"
             >
-              {/* Fill effect on hover */}
               <div className="absolute inset-0 bg-brand-orange -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-in-out z-0" />
-              
               <span className="relative z-10 group-hover:text-off-black transition-colors duration-300 flex items-center gap-2">
-                TRANSMIT BROADCAST
+                {status === 'sending' ? 'TRANSMITTING...' : 'TRANSMIT BROADCAST'}
               </span>
               <ArrowUpRight size={18} className="relative z-10 group-hover:text-off-black group-hover:rotate-45 transition-all duration-300" />
             </button>
+
+            {/* Status messages */}
+            {status === 'success' && (
+              <p className="font-mono text-xs text-brand-orange tracking-widest uppercase animate-pulse">
+                ✓ TRANSMISSION RECEIVED — WE WILL BE IN TOUCH.
+              </p>
+            )}
+            {status === 'error' && (
+              <p className="font-mono text-xs text-red-500 tracking-widest uppercase">
+                ✗ TRANSMISSION FAILED — EMAIL US DIRECTLY AT NOTBAEROZGAAR@GMAIL.COM
+              </p>
+            )}
+
           </form>
         </div>
       </div>

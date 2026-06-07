@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import LoadingScreen from '@/components/LoadingScreen';
 import Hero from '@/components/Hero';
-import ScrollStory from '@/components/ScrollStory';
+import WhatWeDo from '@/components/WhatWeDo';
 import WhoWeAre from '@/components/WhoWeAre';
 import Services from '@/components/Services';
 import Visionaries from '@/components/Visionaries';
@@ -29,7 +29,7 @@ export default function Home() {
         <main className="relative w-full bg-off-black text-off-white select-none">
           <Hero />
           <WhoWeAre />
-          <ScrollStory />
+          <WhatWeDo />
           <Services />
           <Visionaries />
           <ShowcaseGateways />
