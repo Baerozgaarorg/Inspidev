@@ -110,8 +110,8 @@ export default function Hero() {
       />
 
       {/* Decorative Top Bar */}
-      <div className="w-full flex justify-between items-center z-10 font-mono text-xs tracking-[0.2em] uppercase text-neutral-500">
-        <div>[ CODING TO ART ]</div>
+      <div className="w-full flex justify-between items-center z-10 font-mono text-[9px] md:text-xs tracking-[0.1em] md:tracking-[0.2em] uppercase text-neutral-500">
+        <div className="hidden sm:block">[ CODING TO ART ]</div>
         <div className="text-brand-orange animate-pulse">[ SIGNAL ACTIVE ]</div>
         <div>[ INDIA ]</div>
       </div>
@@ -137,23 +137,23 @@ export default function Hero() {
         {/* Editorial Subtitle */}
         <div
           ref={subtitleRef}
-          className="mt-8 max-w-lg md:max-w-xl text-neutral-400 font-after"
+          className="mt-6 md:mt-8 max-w-xs sm:max-w-lg md:max-w-xl text-neutral-400 font-after px-2 md:px-0"
         >
-          <div className="text-sm tracking-[0.4em] text-brand-orange font-bold font-roxen uppercase">
+          <div className="text-xs md:text-sm tracking-[0.3em] md:tracking-[0.4em] text-brand-orange font-bold font-roxen uppercase">
             ESTB 2026
           </div>
-          <div className="text-xs tracking-[0.2em] mt-3 leading-relaxed opacity-75">
+          <div className="text-xs tracking-[0.15em] md:tracking-[0.2em] mt-3 leading-relaxed opacity-75">
             From frame to code, we create jaw-dropping, attention-seizing digital experiences that elevate your digital presence, captivate your audience, and turn ambitious ideas into unforgettable brands built for growth.
           </div>
         </div>
       </div>
 
       {/* Hero Footer Controls */}
-      <div className="w-full flex flex-col md:flex-row justify-between items-center gap-6 z-10">
+      <div className="w-full flex flex-col sm:flex-row justify-between items-center gap-4 z-10">
         
         {/* Scroll Indicator */}
-        <div className="flex items-center gap-3 text-neutral-500 font-mono text-xs tracking-widest uppercase">
-          <span className="w-8 h-[2px] bg-brand-orange animate-ping" />
+        <div className="flex items-center gap-3 text-neutral-500 font-mono text-[10px] md:text-xs tracking-widest uppercase">
+          <span className="w-6 md:w-8 h-[2px] bg-brand-orange animate-ping" />
           <span>SCROLL TO DESCEND</span>
         </div>
 

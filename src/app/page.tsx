@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import LoadingScreen from '@/components/LoadingScreen';
 import Hero from '@/components/Hero';
 import ScrollStory from '@/components/ScrollStory';
+import WhoWeAre from '@/components/WhoWeAre';
 import Services from '@/components/Services';
 import Visionaries from '@/components/Visionaries';
 import ShowcaseGateways from '@/components/ShowcaseGateways';
@@ -27,6 +28,7 @@ export default function Home() {
       ) : (
         <main className="relative w-full bg-off-black text-off-white select-none">
           <Hero />
+          <WhoWeAre />
           <ScrollStory />
           <Services />
           <Visionaries />
