@@ -3,6 +3,7 @@
 import React, { useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import gsap from 'gsap';
+import { ArrowRight } from 'lucide-react';
 
 export default function ShowcaseGateways() {
   const router = useRouter();
@@ -62,82 +63,104 @@ export default function ShowcaseGateways() {
         </h2>
       </div>
 
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 h-[600px]">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-6">
         
-        {/* BOX 1: WEBSITES */}
-        <div 
-          ref={webBoxRef}
-          onMouseEnter={() => handleHoverEnter(webBoxRef)}
-          onMouseLeave={() => handleHoverLeave(webBoxRef)}
-          onClick={() => handleNavigate('/websites')}
-          className="relative w-full h-full border border-neutral-800 overflow-hidden cursor-pointer group bg-neutral-950"
-        >
-          {/* Background Layer (Video) */}
-          <div className="bg-layer absolute inset-0 w-full h-full scale-100">
-            <video 
-              src="/Video Editing/digital artifacts.mp4" 
-              autoPlay 
-              muted 
-              loop 
-              playsInline 
-              className="w-full h-full object-cover filter grayscale mix-blend-screen opacity-50 transition-all duration-500"
-            />
+        {/* COLUMN 1 */}
+        <div className="flex flex-col items-center gap-6 h-[400px] sm:h-[500px] md:h-[600px] w-full">
+          {/* BOX 1: WEBSITES */}
+          <div 
+            ref={webBoxRef}
+            onMouseEnter={() => handleHoverEnter(webBoxRef)}
+            onMouseLeave={() => handleHoverLeave(webBoxRef)}
+            onClick={() => handleNavigate('/websites')}
+            className="relative w-full h-full border border-neutral-800 overflow-hidden cursor-pointer group bg-neutral-950"
+          >
+            {/* Background Layer (Video) */}
+            <div className="bg-layer absolute inset-0 w-full h-full scale-100">
+              <video 
+                src="/Video Editing/digital artifacts.mp4" 
+                autoPlay 
+                muted 
+                loop 
+                playsInline 
+                className="w-full h-full object-cover filter grayscale mix-blend-screen opacity-50 transition-all duration-500"
+              />
+            </div>
+            
+            {/* Dark Overlay */}
+            <div className="overlay-layer absolute inset-0 bg-gradient-to-t from-off-black via-neutral-950/50 to-transparent opacity-70" />
+
+            {/* Text Content */}
+            <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center z-10">
+              <h3 className="text-layer text-5xl md:text-7xl font-roxen uppercase tracking-tighter text-off-white drop-shadow-[0_0_15px_rgba(0,0,0,0.8)]">
+                WEBSITES
+              </h3>
+              <p className="quote-layer mt-6 text-brand-orange font-after text-sm md:text-base tracking-wide italic opacity-0 translate-y-[10px]">
+                “Built to be seen. Engineered to be remembered.”
+              </p>
+            </div>
+
+            {/* Corner accents */}
+            <div className="absolute top-4 left-4 font-mono text-[10px] text-neutral-500 tracking-widest">[ 01 ]</div>
           </div>
           
-          {/* Dark Overlay */}
-          <div className="overlay-layer absolute inset-0 bg-gradient-to-t from-off-black via-neutral-950/50 to-transparent opacity-70" />
-
-          {/* Text Content */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center z-10">
-            <h3 className="text-layer text-5xl md:text-7xl font-roxen uppercase tracking-tighter text-off-white drop-shadow-[0_0_15px_rgba(0,0,0,0.8)]">
-              WEBSITES
-            </h3>
-            <p className="quote-layer mt-6 text-brand-orange font-after text-sm md:text-base tracking-wide italic opacity-0 translate-y-[10px]">
-              “Built to be seen. Engineered to be remembered.”
-            </p>
-          </div>
-
-          {/* Corner accents */}
-          <div className="absolute top-4 left-4 font-mono text-[10px] text-neutral-500 tracking-widest">[ 01 ]</div>
-          <div className="absolute bottom-4 right-4 font-mono text-[10px] text-brand-orange tracking-widest group-hover:animate-pulse">ENTER &gt;</div>
+          {/* NEW ENTER BUTTON */}
+          <button 
+            onClick={() => handleNavigate('/websites')}
+            className="group flex items-center justify-between w-44 h-12 px-6 border border-brand-orange text-brand-orange uppercase font-roxen tracking-widest text-sm transition-all duration-300 hover:bg-brand-orange hover:text-off-black hover:scale-105"
+          >
+            <span>ENTER</span>
+            <ArrowRight size={16} className="transform transition-transform duration-300 group-hover:translate-x-1.5" />
+          </button>
         </div>
 
-        {/* BOX 2: VIDEO EDITING */}
-        <div 
-          ref={videoBoxRef}
-          onMouseEnter={() => handleHoverEnter(videoBoxRef)}
-          onMouseLeave={() => handleHoverLeave(videoBoxRef)}
-          onClick={() => handleNavigate('/video-editing')}
-          className="relative w-full h-full border border-neutral-800 overflow-hidden cursor-pointer group bg-neutral-950"
-        >
-          {/* Background Layer (Video) */}
-          <div className="bg-layer absolute inset-0 w-full h-full scale-100">
-            <video 
-              src="/Video Editing/reel.mp4" 
-              autoPlay 
-              muted 
-              loop 
-              playsInline 
-              className="w-full h-full object-cover filter grayscale mix-blend-screen opacity-50 transition-all duration-500"
-            />
-          </div>
-          
-          {/* Dark Overlay */}
-          <div className="overlay-layer absolute inset-0 bg-gradient-to-t from-off-black via-neutral-950/50 to-transparent opacity-70" />
+        {/* COLUMN 2 */}
+        <div className="flex flex-col items-center gap-6 h-[400px] sm:h-[500px] md:h-[600px] w-full">
+          {/* BOX 2: VIDEO EDITING */}
+          <div 
+            ref={videoBoxRef}
+            onMouseEnter={() => handleHoverEnter(videoBoxRef)}
+            onMouseLeave={() => handleHoverLeave(videoBoxRef)}
+            onClick={() => handleNavigate('/video-editing')}
+            className="relative w-full h-full border border-neutral-800 overflow-hidden cursor-pointer group bg-neutral-950"
+          >
+            {/* Background Layer (Video) */}
+            <div className="bg-layer absolute inset-0 w-full h-full scale-100">
+              <video 
+                src="/Video Editing/reel.mp4" 
+                autoPlay 
+                muted 
+                loop 
+                playsInline 
+                className="w-full h-full object-cover filter grayscale mix-blend-screen opacity-50 transition-all duration-500"
+              />
+            </div>
+            
+            {/* Dark Overlay */}
+            <div className="overlay-layer absolute inset-0 bg-gradient-to-t from-off-black via-neutral-950/50 to-transparent opacity-70" />
 
-          {/* Text Content */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center z-10">
-            <h3 className="text-layer text-5xl md:text-7xl font-roxen uppercase tracking-tighter text-off-white drop-shadow-[0_0_15px_rgba(0,0,0,0.8)]">
-              VIDEO EDITING
-            </h3>
-            <p className="quote-layer mt-6 text-brand-orange font-after text-sm md:text-base tracking-wide italic opacity-0 translate-y-[10px]">
-              “Every frame should leave an impact.”
-            </p>
+            {/* Text Content */}
+            <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center z-10">
+              <h3 className="text-layer text-5xl md:text-7xl font-roxen uppercase tracking-tighter text-off-white drop-shadow-[0_0_15px_rgba(0,0,0,0.8)]">
+                VIDEO EDITING
+              </h3>
+              <p className="quote-layer mt-6 text-brand-orange font-after text-sm md:text-base tracking-wide italic opacity-0 translate-y-[10px]">
+                “Every frame should leave an impact.”
+              </p>
+            </div>
+
+            {/* Corner accents */}
+            <div className="absolute top-4 left-4 font-mono text-[10px] text-neutral-500 tracking-widest">[ 02 ]</div>
           </div>
 
-          {/* Corner accents */}
-          <div className="absolute top-4 left-4 font-mono text-[10px] text-neutral-500 tracking-widest">[ 02 ]</div>
-          <div className="absolute bottom-4 right-4 font-mono text-[10px] text-brand-orange tracking-widest group-hover:animate-pulse">ENTER &gt;</div>
+          {/* NEW ENTER BUTTON */}
+          <button 
+            onClick={() => handleNavigate('/video-editing')}
+            className="group flex items-center justify-between w-44 h-12 px-6 border border-brand-orange text-brand-orange uppercase font-roxen tracking-widest text-sm transition-all duration-300 hover:bg-brand-orange hover:text-off-black hover:scale-105"
+          >
+            <span>ENTER</span>
+            <ArrowRight size={16} className="transform transition-transform duration-300 group-hover:translate-x-1.5" />
+          </button>
         </div>
 
       </div>

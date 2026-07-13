@@ -160,7 +160,7 @@ export default function Services() {
             </p>
           </div>
 
-          <div className="lg:col-span-4 grid grid-cols-2 gap-4 mt-8 lg:mt-0 font-mono text-[10px] tracking-wider text-neutral-500 uppercase service-fade-in">
+          <div className="lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8 lg:mt-0 font-mono text-[10px] tracking-wider text-neutral-500 uppercase service-fade-in">
             <div className="border border-neutral-800 p-4 bg-neutral-950/40">
               <div className="text-brand-orange font-bold font-roxen text-sm mb-2">01 / FRONTEND</div>
               IMMERSIVE UIs<br />CINEMATIC MOTIONS<br />KINETIC TYPO
@@ -285,7 +285,7 @@ export default function Services() {
             </p>
           </div>
 
-          <div className="lg:col-span-4 grid grid-cols-2 gap-4 mt-8 lg:mt-0 font-mono text-[10px] tracking-wider text-neutral-500 uppercase service-fade-in">
+          <div className="lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8 lg:mt-0 font-mono text-[10px] tracking-wider text-neutral-500 uppercase service-fade-in">
             <div className="border border-neutral-800 p-4 bg-neutral-950/40">
               <div className="text-brand-orange font-bold font-roxen text-sm mb-2">01 / RETOUCH</div>
               FLAWLESS SKIN<br />TEXTURE MAPS<br />RAW DETAIL

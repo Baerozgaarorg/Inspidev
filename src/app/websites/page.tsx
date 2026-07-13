@@ -59,6 +59,13 @@ const PROJECTS = [
     logo: "/logo/Sanskriti Foundation School.png",
     bg: "/website background/Sanskriti Foundation School.png",
     link: "https://sanskriti-foundation-school.netlify.app"
+  },
+  {
+    title: "NIWASIFY",
+    category: "REAL ESTATE",
+    logo: "/logo/Niwasify 2.jpeg",
+    bg: "/website background/Niwasify.png",
+    link: "https://niwasify.netlify.app" // User didn't provide link, using placeholder/netlify or omitting
   }
 ];
 
@@ -162,7 +169,7 @@ export default function WebsitesPage() {
         {/* Hero Title */}
         <section className="relative w-full h-[60vh] flex items-end justify-center pb-20 border-b border-neutral-900 px-6">
           <div className="absolute inset-0 bg-radial-gradient(circle at 50% 100%, rgba(255,85,0,0.1), transparent 60%)" />
-          <h1 className="text-6xl md:text-[10vw] font-roxen uppercase tracking-tighter leading-[0.8] text-center drop-shadow-2xl">
+          <h1 className="text-[12vw] md:text-[10vw] font-roxen uppercase tracking-tighter leading-[0.8] text-center drop-shadow-2xl">
             DIGITAL <span className="text-brand-orange">ARTIFACTS</span>
           </h1>
         </section>
