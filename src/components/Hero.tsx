@@ -188,14 +188,22 @@ export default function Hero() {
               <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="relative z-10"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
               <div className="absolute inset-0 bg-brand-orange scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 z-0" />
             </a>
+            {/* PORTFOLIO icon — same style as socials */}
+            <a
+              href="/id-portfolio"
+              className="social-btn group w-12 h-12 flex items-center justify-center border border-neutral-800 hover:border-brand-orange bg-neutral-900/50 hover:bg-brand-orange text-off-white hover:text-off-black transition-all duration-300 relative overflow-hidden"
+            >
+              <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="relative z-10"><rect x="2" y="3" width="20" height="18" rx="2" ry="2"></rect><line x1="2" y1="9" x2="22" y2="9"></line><line x1="10" y1="9" x2="10" y2="21"></line></svg>
+              <div className="absolute inset-0 bg-brand-orange scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 z-0" />
+            </a>
           </div>
 
+          {/* PORTFOLIO label below icon row */}
           <a 
-            href="/portfolio" 
-            target="_blank"
+            href="/id-portfolio" 
             className="group flex items-center gap-3 px-6 py-3 bg-neutral-900/50 border border-neutral-800 hover:border-brand-orange hover:bg-brand-orange text-xs font-roxen tracking-widest uppercase transition-all duration-300 text-off-white hover:text-off-black cursor-pointer social-btn"
           >
-            EDITORIAL PORTFOLIO
+            PORTFOLIO
             <ArrowUpRight size={14} className="group-hover:rotate-45 transition-transform" />
           </a>
         </div>
